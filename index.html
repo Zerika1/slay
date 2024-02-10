@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PTTS</title>
+
+    <style>
+      .header {
+        background-color: pink;
+        padding: 20px;
+        text-align: left;
+        font-family: fantasy;
+        letter-spacing: 2px;
+      }
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
+      img {
+        width: 150px;
+        border-radius: 50px;
+        float: left;
+        margin-right: 20px;
+      }
+      .footer {
+        background-color: pink;
+        padding: 15px;
+        text-align: center;
+        font-family: fantasy;
+        letter-spacing: 2px;
+      }
+      #map {
+        height: 500px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <img src="images/res logo (1).png" />
+      <h1 style="color: black">PUBLIC TRANSPORT TRACKING SYSTEM</h1>
+      <h2 style="color: black">by: VNNCD</h2>
+    </div>
+    <br />
+
+    <div id="map"></div>
+
+    <br />
+    <center style="font-size: 100%" class="footer">T2 GROUP 3</center>
+  </body>
+  <script>
+    var map = L.map("map").setView([51.505, -0.09], 13);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
+  </script>
+</html>
