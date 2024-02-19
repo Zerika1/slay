@@ -13,12 +13,17 @@
       integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
       crossorigin=""
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
 
     <script
       src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
       integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
       crossorigin=""
     ></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 
     <style>
       .header {
@@ -36,7 +41,7 @@
       }
       img {
         width: 150px;
-        border-radius: 50px;
+        border-radius: 10px;
         float: left;
         margin-right: 20px;
       }
@@ -55,7 +60,7 @@
 
   <body>
     <div class="header">
-      <img src="res logo (1).png" />
+      <img src="Final Res Logo.png" />
       <h1 style="color: black">PUBLIC TRANSPORT TRACKING SYSTEM</h1>
       <h2 style="color: black">by:</h2>
     </div>
@@ -69,7 +74,7 @@
   <script>
     const map = L.map("map");
 
-    map.setView([51.505, -0.09], 13);
+    map.setView([10.3123, 123.9023], 15);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution: "© OpenStreetMap",
@@ -106,5 +111,6 @@
         alert("Cannot get current location");
       }
     }
+    L.Control.geocoder().addTo(map);
   </script>
 </html>
