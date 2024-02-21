@@ -89,8 +89,8 @@
       attribution: "© OpenStreetMap",
     }).addTo(map);
 
-    let circle, zoomed;
-    var marker = L.marker([lat, lng]).addTo(map);
+    let marker, circle, zoomed;
+    var marker1 = L.marker([10.3123, 123.9023]).addTo(map);
 
     navigator.geolocation.watchPosition(success, error);
 
@@ -124,8 +124,7 @@
     L.Control.geocoder().addTo(map);
 
     L.Routing.control({
-      waypoints: [L.latLng(lat, lng), L.latLng(10.35197, 123.91389)],
+      waypoints: [L.latLng(10.3123, 123.9023), L.latLng(10.35197, 123.91389)],
     }).addTo(map);
-
   </script>
 </html>
