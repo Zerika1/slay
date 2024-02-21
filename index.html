@@ -39,7 +39,7 @@
         background-color: #fcd12a;
         padding: 20px;
         text-align: left;
-        font-family: fantasy;
+        font-family: "Courier New";
         letter-spacing: 2px;
       }
       .center {
@@ -49,8 +49,8 @@
         width: 50%;
       }
       img {
-        width: 150px;
-        border-radius: 10px;
+        width: 140px;
+        border-radius: 70px;
         float: left;
         margin-right: 20px;
       }
@@ -58,7 +58,7 @@
         background-color: #fcd12a;
         padding: 15px;
         text-align: center;
-        font-family: fantasy;
+        font-family: "Courier New";
         letter-spacing: 2px;
       }
       #map {
@@ -69,11 +69,15 @@
 
   <body>
     <div class="header">
-      <img src="Final Res Logo.png" />
+      <img src="Final Res Logo 2.png" />
+      <br />
+      <br />
       <h1 style="color: black">PUBLIC TRANSPORT TRACKING SYSTEM</h1>
-      <h2 style="color: black">by:</h2>
+      <br />
     </div>
-    <h1>Map User Location</h1>
+    <h2 style="font-family: 'Courier New'; text-align: center">
+      Map User Location
+    </h2>
 
     <div id="map"></div>
 
@@ -91,9 +95,13 @@
 
     let marker, circle, zoomed;
     var marker1 = L.marker([10.3123, 123.9023]).addTo(map);
-
-    navigator.geolocation.watchPosition(success, error);
-
+    var userJeep = L.icon({
+      iconUrl: "User Jeep.png",
+      iconSize: [50, 50],
+    });
+    function updateLocation() {
+      navigator.geolocation.getCurrentPosition(success, error);
+    }
     function success(pos) {
       const lat = pos.coords.latitude;
       const lng = pos.coords.longitude;
@@ -104,7 +112,7 @@
         map.removeLayer(circle);
       }
 
-      marker = L.marker([lat, lng]).addTo(map);
+      marker = L.marker([lat, lng], { icon: userJeep }).addTo(map);
       circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
 
       if (!zoomed) {
@@ -121,6 +129,9 @@
         alert("Cannot get current location");
       }
     }
+
+    setInterval(updateLocation, 1000);
+
     L.Control.geocoder().addTo(map);
 
     L.Routing.control({
