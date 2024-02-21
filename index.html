@@ -13,9 +13,15 @@
       integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
       crossorigin=""
     />
+
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
     />
 
     <script
@@ -23,7 +29,10 @@
       integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
       crossorigin=""
     ></script>
+
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
     <style>
       .header {
@@ -72,7 +81,7 @@
     <center style="font-size: 100%" class="footer">T2 GROUP 3</center>
   </body>
   <script>
-    const map = L.map("map");
+    var map = L.map("map");
 
     map.setView([10.3123, 123.9023], 15);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -80,7 +89,8 @@
       attribution: "© OpenStreetMap",
     }).addTo(map);
 
-    let marker, circle, zoomed;
+    let circle, zoomed;
+    var marker = L.marker([lat, lng]).addTo(map);
 
     navigator.geolocation.watchPosition(success, error);
 
@@ -112,5 +122,10 @@
       }
     }
     L.Control.geocoder().addTo(map);
+
+    L.Routing.control({
+      waypoints: [L.latLng(lat, lng), L.latLng(10.35197, 123.91389)],
+    }).addTo(map);
+
   </script>
 </html>
