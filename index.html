@@ -93,12 +93,31 @@
       attribution: "© OpenStreetMap",
     }).addTo(map);
 
+    var jeepStop = L.icon({
+      iconUrl: "bus stop logo.png",
+      iconSize: [50, 50],
+    });
+
     let marker, circle, zoomed;
     var marker1 = L.marker([10.3123, 123.9023]).addTo(map);
+    var marker2 = L.marker([10.31903, 123.90321], { icon: jeepStop }).addTo(
+      map
+    );
+    var marker3 = L.marker([10.32848, 123.90889], { icon: jeepStop }).addTo(
+      map
+    );
+    var marker4 = L.marker([10.33171, 123.91018], { icon: jeepStop }).addTo(
+      map
+    );
+    var marker5 = L.marker([10.33802, 123.91138], { icon: jeepStop }).addTo(
+      map
+    );
+
     var userJeep = L.icon({
       iconUrl: "User Jeep.png",
       iconSize: [50, 50],
     });
+
     function updateLocation() {
       navigator.geolocation.getCurrentPosition(success, error);
     }
