@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="keywords" content="HTML, CSS" />
-  <meta name="description" content="..." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta name="description" content="..." />
     <title>PTTS</title>
     <link
       rel="stylesheet"
@@ -69,9 +69,9 @@
       }
       .container {
         display: grid;
-        align-items: left;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        column-gap: 5px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 10px;
+        justify-content: center;
       }
 
       #map {
